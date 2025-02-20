@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Our Services - Trust Organization{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="row mb-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="display-4 mb-4">Our Services</h1>
+            <p class="lead">Comprehensive support for community development and welfare</p>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-graduation-cap fa-3x mb-3"></i>
+                    <h3>Education Support</h3>
+                    <ul class="list-unstyled">
+                        <li>Scholarship Programs</li>
+                        <li>School Supplies Distribution</li>
+                        <li>Tutoring Services</li>
+                        <li>Digital Literacy Programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-heartbeat fa-3x mb-3"></i>
+                    <h3>Healthcare Services</h3>
+                    <ul class="list-unstyled">
+                        <li>Medical Camps</li>
+                        <li>Health Awareness Programs</li>
+                        <li>Nutrition Support</li>
+                        <li>Mental Health Services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-hands-helping fa-3x mb-3"></i>
+                    <h3>Community Development</h3>
+                    <ul class="list-unstyled">
+                        <li>Skill Development</li>
+                        <li>Women Empowerment</li>
+                        <li>Rural Development</li>
+                        <li>Environmental Projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <div class="card bg-dark text-light">
+                <div class="card-body p-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h3>Need Our Support?</h3>
+                            <p class="lead mb-0">Contact us to learn more about our services and how we can help.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Recent Initiatives</h3>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4>Rural Education Program</h4>
+                            <p>Providing quality education to children in remote areas through mobile learning centers and dedicated teachers.</p>
+                            <p class="text-muted"><i class="fas fa-users me-2"></i>500+ students benefited</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4>Healthcare Outreach</h4>
+                            <p>Regular medical camps and health awareness programs in underserved communities.</p>
+                            <p class="text-muted"><i class="fas fa-hospital-user me-2"></i>1000+ patients served</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
