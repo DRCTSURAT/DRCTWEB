@@ -1,5 +1,7 @@
 import os
 from flask import Flask, render_template, request, flash, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 import logging
 
 # Configure logging
@@ -7,8 +9,28 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-# Use the secret key from environment variable without a default value for security
 app.secret_key = os.environ.get("SESSION_SECRET")
+
+# Database configuration
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///site.db")
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_recycle": 300,
+    "pool_pre_ping": True,
+}
+
+db = SQLAlchemy(app)
+
+# Initialize Login Manager
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'admin_login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Admin.query.get(int(user_id))
+
+# Import models after db initialization
+from models import Admin, Content
 
 @app.route('/')
 def index():
@@ -81,3 +103,46 @@ def contact():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+# Admin routes
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        admin = Admin.query.filter_by(username=username).first()
+
+        if admin and admin.check_password(password):
+            login_user(admin)
+            flash('Login successful!', 'success')
+            return redirect(url_for('admin_dashboard'))
+        flash('Invalid username or password', 'error')
+
+    return render_template('admin/login.html')
+
+@app.route('/admin/dashboard')
+@login_required
+def admin_dashboard():
+    content = Content.query.order_by(Content.last_updated.desc()).all()
+    return render_template('admin/dashboard.html', content=content)
+
+@app.route('/admin/content/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_content(id):
+    content = Content.query.get_or_404(id)
+    if request.method == 'POST':
+        content.title = request.form.get('title')
+        content.content = request.form.get('content')
+        content.updated_by = current_user.id
+        db.session.commit()
+        flash('Content updated successfully!', 'success')
+        return redirect(url_for('admin_dashboard'))
+
+    return render_template('admin/edit_content.html', content=content)
+
+@app.route('/admin/logout')
+@login_required
+def admin_logout():
+    logout_user()
+    flash('Logged out successfully', 'success')
+    return redirect(url_for('admin_login'))
