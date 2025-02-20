@@ -28,6 +28,13 @@
                     <div class="mt-4">
                         <p class="text-muted"><i class="fas fa-info-circle me-2"></i>Please include your name and contact information in the transfer reference for our records.</p>
                     </div>
+
+                    <h3 class="card-title mb-4 mt-4">Digital Payment Options</h3>
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/google-pay-qr.jpg') }}" alt="Google Pay QR Code" class="img-fluid mb-3" style="max-width: 300px;">
+                        <p class="text-muted">Scan this QR code to donate via Google Pay, UPI, or other supported payment apps</p>
+                    </div>
+
                     <h3 class="card-title mb-4 mt-4">Donation Form</h3>
                     <form id="donateForm" method="POST" action="{{ url_for('donate') }}">
                         <div class="mb-3">
@@ -39,16 +46,8 @@
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="amount" class="form-label">Donation Amount ($)</label>
+                            <label for="amount" class="form-label">Donation Amount (₹)</label>
                             <input type="number" class="form-control" id="amount" name="amount" min="1" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="frequency" class="form-label">Donation Frequency</label>
-                            <select class="form-select" id="frequency" name="frequency">
-                                <option value="one-time">One-time</option>
-                                <option value="monthly">Monthly</option>
-                                <option value="annually">Annually</option>
-                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Message (Optional)</label>
@@ -75,33 +74,6 @@
                     <div class="mb-4">
                         <h5><i class="fas fa-chart-line me-2"></i>Growth</h5>
                         <p>Help us expand our reach and impact more lives.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <div class="card bg-dark text-light">
-                <div class="card-body text-center p-4">
-                    <h3>Other Ways to Support</h3>
-                    <div class="row mt-4">
-                        <div class="col-md-4 mb-3">
-                            <i class="fas fa-volunteer fa-2x mb-2"></i>
-                            <h5>Volunteer</h5>
-                            <p>Join our team of dedicated volunteers</p>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <i class="fas fa-gift fa-2x mb-2"></i>
-                            <h5>In-Kind Donations</h5>
-                            <p>Donate supplies and materials</p>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <i class="fas fa-hands-helping fa-2x mb-2"></i>
-                            <h5>Corporate Partnerships</h5>
-                            <p>Partner with us for social impact</p>
-                        </div>
                     </div>
                 </div>
             </div>
