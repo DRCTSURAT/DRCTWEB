@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - Trust Organization{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <div class="error-page">
+                <i class="fas fa-exclamation-circle fa-5x mb-4"></i>
+                <h1 class="display-4 mb-4">404 - Page Not Found</h1>
+                <p class="lead mb-4">The page you're looking for doesn't exist or has been moved.</p>
+                <div class="buttons">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-home me-2"></i>Return Home
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

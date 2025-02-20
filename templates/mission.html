@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Mission & Vision - Trust Organization{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="row mb-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="display-4 mb-4">Our Mission & Vision</h1>
+            <p class="lead">Guiding principles that drive our organization forward</p>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-bullseye fa-4x mb-3"></i>
+                    <h2 class="card-title">Our Mission</h2>
+                    <p class="card-text">To empower communities through sustainable development initiatives, education, and healthcare support, creating lasting positive change in society.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-eye fa-4x mb-3"></i>
+                    <h2 class="card-title">Our Vision</h2>
+                    <p class="card-text">A world where every individual has access to opportunities for growth and development, leading to self-sustaining and prosperous communities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Our Objectives</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-book fa-2x mb-3"></i>
+                            <h4>Education</h4>
+                            <p>Provide quality education and skill development opportunities to underprivileged communities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-medkit fa-2x mb-3"></i>
+                            <h4>Healthcare</h4>
+                            <p>Ensure access to basic healthcare services and promote health awareness.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-hands-helping fa-2x mb-3"></i>
+                            <h4>Community Development</h4>
+                            <p>Foster sustainable community development through various initiatives and programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <div class="card bg-dark text-light">
+                <div class="card-body text-center p-5">
+                    <h3 class="mb-4">Our Commitment</h3>
+                    <p class="lead">We are committed to:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check me-2"></i> Transparency in all our operations</li>
+                        <li><i class="fas fa-check me-2"></i> Sustainable development practices</li>
+                        <li><i class="fas fa-check me-2"></i> Community engagement and participation</li>
+                        <li><i class="fas fa-check me-2"></i> Continuous improvement and innovation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h3>Support Our Mission</h3>
+            <p class="mb-4">Your support helps us continue our important work and create lasting impact.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ url_for('donate') }}" class="btn btn-donate">Make a Donation</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

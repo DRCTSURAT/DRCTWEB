@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Donate - Trust Organization{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="row mb-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="display-4 mb-4">Make a Donation</h1>
+            <p class="lead">Your support helps us continue our mission of serving communities</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Donation Form</h3>
+                    <form id="donateForm" method="POST" action="{{ url_for('donate') }}">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Donation Amount ($)</label>
+                            <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="frequency" class="form-label">Donation Frequency</label>
+                            <select class="form-select" id="frequency" name="frequency">
+                                <option value="one-time">One-time</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message (Optional)</label>
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-donate btn-lg w-100">Donate Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Why Donate?</h3>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-hand-holding-heart me-2"></i>Impact</h5>
+                        <p>Your donation directly supports our community programs and initiatives.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Trust</h5>
+                        <p>We ensure complete transparency in the utilization of funds.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-chart-line me-2"></i>Growth</h5>
+                        <p>Help us expand our reach and impact more lives.</p>
+                    </div>
+                    <div class="alert alert-info">
+                        <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Tax Benefits</h5>
+                        <p class="mb-0">All donations are tax-deductible. You will receive a receipt for your records.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card bg-dark text-light">
+                <div class="card-body text-center p-4">
+                    <h3>Other Ways to Support</h3>
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <i class="fas fa-volunteer fa-2x mb-2"></i>
+                            <h5>Volunteer</h5>
+                            <p>Join our team of dedicated volunteers</p>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <i class="fas fa-gift fa-2x mb-2"></i>
+                            <h5>In-Kind Donations</h5>
+                            <p>Donate supplies and materials</p>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <i class="fas fa-hands-helping fa-2x mb-2"></i>
+                            <h5>Corporate Partnerships</h5>
+                            <p>Partner with us for social impact</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
